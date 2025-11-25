@@ -4,8 +4,10 @@ import './SideChat.css'
 const SideChat = ({img, name, index}) => {
   return (
     <div className='side-chat-main'>
-      <img src={img} alt='Not Found' />
-      <div>
+      <div className='side-chat-img'>
+        <img src={img} alt='Not Found' />
+      </div>
+      <div className='side-chat-status'>
         <p>{name}</p>
         {
             index < 3

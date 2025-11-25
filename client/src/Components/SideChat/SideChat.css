@@ -1,5 +1,7 @@
 .side-chat-main{
     display: flex;
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
 .side-chat-main img{
@@ -7,4 +9,23 @@
     width: 40px;
     height: 40px;
     object-fit:cover;
+}
+
+.side-chat-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-chat-status{
+    margin-top: -12px;
+    margin-left: 5px;
+}
+
+.side-chat-status p{
+   margin-bottom: -5px; 
+}
+
+.side-chat-status span{
+   font-size: 10px;
 }

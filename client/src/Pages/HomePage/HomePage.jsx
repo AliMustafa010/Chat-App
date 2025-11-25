@@ -7,9 +7,15 @@ import RightSidebar from '../../Components/RightSidebar/RightSidebar'
 const HomePage = () => {
   return (
     <div className='home-page'>
-        <Sidebar className='sidebar' />
-        <ChatContainer className='chat-container' />
-        <RightSidebar className='right-sidebar' />
+        <div className='sidebar'>
+            <Sidebar />
+        </div>
+        <div className="chat-container">
+            <ChatContainer />
+        </div>
+        <div className="right-sidebar">
+            <RightSidebar />
+        </div>
     </div>
   )
 }
