@@ -1,0 +1,15 @@
+.home-page{
+    display: flex;
+}
+
+.sidebar{
+    width: 30%;
+}
+
+.chat-container{
+    width: 40%;
+}
+
+.right-sidebar{
+    width: 30%;
+}

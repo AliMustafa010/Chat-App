@@ -1,0 +1,10 @@
+.side-chat-main{
+    display: flex;
+}
+
+.side-chat-main img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit:cover;
+}
