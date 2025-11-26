@@ -1,3 +1,21 @@
 .sidebar-logo{
     display: flex;
+    margin-bottom: 20px;
+}
+
+.sidebar-search{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.sidebar-search-icon{
+
+}
+
+.sidebar-search-input input{
+    border: none;
+    outline: none;
 }

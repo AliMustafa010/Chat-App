@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .home-page{
     display: flex;
     width: 100%;
@@ -5,13 +11,20 @@
 }
 
 .sidebar{
-    width: 30%;
+    width: 20%;
+    background-color: aqua;
 }
 
 .chat-container{
-    width: 40%;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    background-color: cadetblue;
 }
 
 .right-sidebar{
-    width: 30%;
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    background-color: cornflowerblue;
 }

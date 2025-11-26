@@ -45,9 +45,13 @@ const Sidebar = () => {
             </div>
         </div>
 
-        <div>
-            <FontAwesomeIcon icon={faSearch} />
-            <input type="text" placeholder="Search or start new chat" />
+        <div className='sidebar-search'>
+            <div className='sidebar-search-icon'>
+                <FontAwesomeIcon icon={faSearch} />
+            </div>
+            <div className='sidebar-search-input'>
+                <input type="text" placeholder='Search or start new chat' />
+            </div>
         </div>
 
         <div>
