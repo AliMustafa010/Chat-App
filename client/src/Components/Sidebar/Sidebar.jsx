@@ -23,12 +23,32 @@ const Sidebar = () => {
         {
             img: avatar,
             name: "User 3",
-            index: 4
+            index: 1
         },
         {
             img: avatar,
             name: "User 4",
             index: 3
+        },
+        {
+            img: avatar,
+            name: "User 5",
+            index: 2
+        },
+        {
+            img: avatar,
+            name: "User 6",
+            index: 4
+        },
+        {
+            img: avatar,
+            name: "User 7",
+            index: 3
+        },
+        {
+            img: avatar,
+            name: "User 8",
+            index: 0
         }
     ]
   return (
@@ -54,9 +74,9 @@ const Sidebar = () => {
             </div>
         </div>
 
-        <div>
+        <div className='sidebar-list'>
             {userData.map((user, index) => (
-                <SideChat key={index} img={user.img} name={user.name} index={index} />
+                <SideChat key={index} img={user.img} name={user.name} index={user.index} />
             ))}
         </div>
     </div>

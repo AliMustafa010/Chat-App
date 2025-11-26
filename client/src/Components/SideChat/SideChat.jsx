@@ -1,5 +1,7 @@
 import React from 'react'
 import './SideChat.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
 const SideChat = ({img, name, index}) => {
   return (
@@ -9,10 +11,17 @@ const SideChat = ({img, name, index}) => {
       </div>
       <div className='side-chat-status'>
         <p>{name}</p>
+        
         {
             index < 3
-            ? <span>Online</span>
-            : <span>Offline</span>
+            ? <span>
+                <FontAwesomeIcon icon={faCircle} style={{color : "green" , fontSize : "5px"}}/>
+                <span className='green'>Online</span>
+              </span>
+            : <span>
+                <FontAwesomeIcon icon={faCircle} style={{color : "grey" , fontSize : "5px"}}/>
+                <span className='grey'>Offline</span>
+              </span>
         }
       </div>
     </div>

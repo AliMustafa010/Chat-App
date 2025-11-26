@@ -4,7 +4,6 @@ const ChatContainer = () => {
   return (
     <div>
         CHAT CONTAINER
-        updated
     </div>
   )
 }
