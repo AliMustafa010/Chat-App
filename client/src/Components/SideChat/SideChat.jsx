@@ -14,11 +14,11 @@ const SideChat = ({img, name, index}) => {
         
         {
             index < 3
-            ? <span>
+            ? <span className='green1'>
                 <FontAwesomeIcon icon={faCircle} style={{color : "green" , fontSize : "5px"}}/>
                 <span className='green'>Online</span>
               </span>
-            : <span>
+            : <span className='grey1'>
                 <FontAwesomeIcon icon={faCircle} style={{color : "grey" , fontSize : "5px"}}/>
                 <span className='grey'>Offline</span>
               </span>

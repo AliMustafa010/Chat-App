@@ -18,12 +18,7 @@
 }
 
 .side-chat-status{
-    margin-top: -12px;
     margin-left: 5px;
-}
-
-.side-chat-status p{
-   margin-bottom: -5px; 
 }
 
 .side-chat-status span{
@@ -32,8 +27,16 @@
 
 .green{
     color: green;
+    margin-left: 3px;
 }
 
 .grey{
     color: grey;
+    margin-left: 3px;
+}
+
+.grey1 , .green1{
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
