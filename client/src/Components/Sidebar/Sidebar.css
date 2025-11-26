@@ -1,11 +1,13 @@
 .sidebar-main{
     display: grid;
-    grid-template-rows: 10% 10% 80%;
-    padding: 10px;
+    grid-template-rows: 10% 10% 75%;
+    padding: 15px;
 }
 
 .sidebar-logo{
-    display: flex;
+    display: grid;
+    grid-template-columns: 15% 30% 55%;
+    align-items: center;
     margin-bottom: 20px;
 }
 
@@ -17,6 +19,11 @@
     border-radius: 25px;
     padding: 10px;
     margin-bottom: 20px;
+}
+
+.ellipis{
+    display: flex;
+    justify-content: right;
 }
 
 .sidebar-search-input input{

@@ -53,15 +53,15 @@ const Sidebar = () => {
     ]
   return (
     <div className='sidebar-main'>   
-        <div className='sidebar-logo' style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div className='sidebar-logo'>
             <div>
-                <img src={logo} alt='Logo' width={40}/>
+                <img src={logo} alt='Logo' width={30}/>
             </div>
             <div>
                 Chat App
             </div>
             <div className='ellipis'>
-                <FontAwesomeIcon icon={faEllipsisV} style={{ fontSize: '24px', cursor: 'pointer' }} />
+                <FontAwesomeIcon icon={faEllipsisV} style={{ fontSize: '18px', cursor: 'pointer' }} />
             </div>
         </div>
 
