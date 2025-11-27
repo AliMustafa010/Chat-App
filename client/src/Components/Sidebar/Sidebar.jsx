@@ -49,6 +49,26 @@ const Sidebar = () => {
             img: avatar,
             name: "User 8",
             index: 0
+        },
+        {
+            img: avatar,
+            name: "User 3",
+            index: 1
+        },
+        {
+            img: avatar,
+            name: "User 4",
+            index: 3
+        },
+        {
+            img: avatar,
+            name: "User 5",
+            index: 2
+        },
+        {
+            img: avatar,
+            name: "User 6",
+            index: 4
         }
     ]
   return (
