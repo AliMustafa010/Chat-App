@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
-app.use('/', router);
+app.use('/auth', router);
 
 connectDB().then(() => {
     app.listen(PORT, () => {

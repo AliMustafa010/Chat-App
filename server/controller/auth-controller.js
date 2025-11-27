@@ -1,4 +1,5 @@
 const User = require('../model/user-model');
+const bcrypt = require('bcryptjs');
 
 const Home = async (req, res) => {
     try {
@@ -14,21 +15,31 @@ const Home = async (req, res) => {
 
 const Register = async (req, res) => {
     try {
-        console.log(req.body);
         const { username, email, password, age, phone } = req.body;
 
-        const userExist = await User.findOne({ email });
+        const userExist = await User.findOne({ email : email });
         if (userExist) {
             return res
             .status(400)
             .json({ status: 'error', message: 'User already exists' });
         }
 
-        const userCreated = await User.create({username, email, password, age, phone});
+        const userCreated = await User.create({
+            username, 
+            email, 
+            password,
+            age, 
+            phone
+        });
 
         res
         .status(200)
-        .json({ status: 'ok', message: userCreated });
+        .json({ 
+            status: 'ok', 
+            message: userCreated, 
+            userToken: await userCreated.generateToken(),
+            userId: userCreated.id > toString()
+        });
     } catch (error) {
         res
         .status(500)
@@ -37,14 +48,36 @@ const Register = async (req, res) => {
 }
 
 const Login = async (req, res) => {
+    
     try {
+        const { email, password } = req.body;
+
+        const userExisted = await User.findOne({ email : email });
+        if (!userExisted) {
+            return res
+            .status(400)
+            .json({ status: 'error', message: 'User does not exist' });
+        }
+
+        const isPasswordMatch = await bcrypt.compare(password, userExisted.password);
+        if (!isPasswordMatch) {
+            return res
+            .status(400)
+            .json({ status: 'error', message: 'Invalid credentials'});
+        }
+
         res
         .status(200)
-        .json({ status: 'ok', message: 'Login route' });
+        .json({ 
+            status: 'ok', 
+            message: 'Login Succesfull',
+            userToken: await userExisted.generateToken(),
+            userId: userExisted.id.toString()
+        });
     } catch (error) {
         res
         .status(500)
-        .json({ status: 'error', message: 'Login Server Error' });
+        .json({ status: 'error', message: 'Login Server Error' , error: error.message });
     }
 }
 
