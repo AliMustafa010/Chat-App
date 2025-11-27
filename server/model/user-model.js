@@ -3,36 +3,31 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     username: { 
         type: String, 
-        required: [true, 'Username is required'], 
+        required: true,
         unique: true,
-        trim: true,
-        minlength: [3, 'Username must be at least 3 characters'],
-        maxlength: [30, 'Username cannot exceed 30 characters']
+        minlength: 3,
+        maxlength: 30
     },
     email: { 
         type: String, 
-        required: [true, 'Email is required'], 
+        required: true,
         unique: true,
-        trim: true,
         lowercase: true,
-        match: [/.+@.+\..+/, 'Please fill a valid email address']
     },
     password: { 
         type: String, 
-        required: [true, 'Password is required'],
-        minlength: [6, 'Password must be at least 6 characters']
+        required: true,
+        minlength: 6
     },
     age: {
         type: Number,
-        min: [0, 'Age cannot be negative'],
-        max: [70, 'Age seems invalid'],
+        min: 0,
+        max: 70,
         required: false
     },
     phone: {
         type: String,
         required: false,
-        trim: true,
-        match: [/^\+?[0-9]{7,15}$/, 'Please enter a valid phone number']
     }
 });
 
