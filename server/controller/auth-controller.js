@@ -1,7 +1,7 @@
 const User = require('../model/user-model');
 const bcrypt = require('bcryptjs');
 
-const Home = async (req, res) => {
+const home = async (req, res) => {
     try {
         res
         .status(200)
@@ -13,7 +13,7 @@ const Home = async (req, res) => {
     }
 }
 
-const Register = async (req, res) => {
+const register = async (req, res) => {
     try {
         const { username, email, password, age, phone } = req.body;
 
@@ -47,7 +47,7 @@ const Register = async (req, res) => {
     }
 }
 
-const Login = async (req, res) => {
+const login = async (req, res) => {
     
     try {
         const { email, password } = req.body;
@@ -81,12 +81,8 @@ const Login = async (req, res) => {
     }
 }
 
-const Contact = async (req, res) => {
-    
-}
-
 module.exports = {
-    Home,
-    Register,
-    Login
+    home,
+    register,
+    login,
 }

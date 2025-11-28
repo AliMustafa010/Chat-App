@@ -1,14 +1,16 @@
 require('dotenv').config();
 
 const express = require('express');
-const router = require('./router/auth-router');
+const authRoute = require('./router/auth-router');
+const formRoute = require('./router/contact-router');
 const connectDB = require('./Utilis/db');
 
 const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
-app.use('/auth', router);
+app.use('/auth', authRoute);
+app.use('/form', formRoute);
 
 connectDB().then(() => {
     app.listen(PORT, () => {
