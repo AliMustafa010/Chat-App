@@ -81,6 +81,10 @@ const Login = async (req, res) => {
     }
 }
 
+const Contact = async (req, res) => {
+    
+}
+
 module.exports = {
     Home,
     Register,
