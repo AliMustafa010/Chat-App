@@ -9,8 +9,8 @@ const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
-app.use('/auth', authRoute);
-app.use('/form', formRoute);
+app.use('/', authRoute);
+app.use('/', formRoute);
 
 connectDB().then(() => {
     app.listen(PORT, () => {

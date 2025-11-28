@@ -1,4 +1,4 @@
-const mongoose = require('./mongoose');
+const mongoose = require('mongoose');
 
 const contactSchema = new mongoose.Schema({
     username: { 
@@ -21,4 +21,4 @@ const contactSchema = new mongoose.Schema({
 })
 
 const Contact = mongoose.model('Contact', contactSchema);
-module.exports = contactSchema;
+module.exports = Contact;
