@@ -3,9 +3,12 @@ import "./Message.css"
 
 import { FaCircle } from "react-icons/fa";
 
-const Message = ({image, name, status}) => {
+const Message = ({image, name, status, selected, onSelect}) => {
   return (
-    <div className='message'>
+    <div 
+      className={'message' + (selected ? " selected-message-item" : "")}
+      onClick={onSelect}
+    >
         <div className='message-img'>
             <img className='message-img-element' src={image} alt='profile' />
         </div>
@@ -18,12 +21,12 @@ const Message = ({image, name, status}) => {
             <div className='message-status'>
                 { status == 1 ? (
                   <div> 
-                    <FaCircle style={{color : "green"}} />
+                    <FaCircle className='message-status-online' />
                     <span className='status-online'>Online</span>
                   </div>
                   ):(
                     <div>
-                      <FaCircle style={{color : "lightgray"}} />
+                      <FaCircle className='message-status-offline' />
                       <span className='status-offline'>Offline</span>
                     </div>
                   )

@@ -1,7 +1,15 @@
 .message{
     display: flex;
-    border-bottom: 1px solid #919191;
-    margin-bottom: 30px;
+    background-color: rgb(61, 61, 61);
+    border-radius: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.message:hover{
+    background-color: #5d4242;
+    border-radius: 20px;
 }
 
 .message-img-element{
@@ -12,13 +20,30 @@
 }
 
 .message-info{
-
+    margin-left: 15px;
 }
 
 .message-name{
     color: #FFFFFF;
 }
 
+.message-status-online{
+    color: green;
+    font-size: 10px;
+    margin-right: 5px;
+}
+
+.message-status-offline{
+    color: lightgrey;
+    font-size: 10px;
+    margin-right: 5px;
+}
+
 .message-status span{
     color: #FFFFFF;
+}
+
+.selected-message-item{
+    background-color: #5d4242;
+    border-radius: 20px;
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import {React, useState} from 'react'
 import "./RightSidebar.css"
 import users from '../../dummyData'
 
@@ -6,12 +6,19 @@ import { IoIosSearch } from "react-icons/io";
 import Message from '../Message/Message';
 
 const RightSidebar = () => {
+
+  const [selected, setSelected] = useState(null);
+
+  const handleSelect = (item) => {
+      setSelected(item);
+  }
+
   return (
     <div className="right-sidebar">
 
       <div className='right-sidebar-search'>
         <div className='right-sidebar-search-sub'>
-          <IoIosSearch style={{ fontSize: "30px", color: "white" }} />
+          <IoIosSearch className='right-sidebar-search-icon' />
           <input type='text' placeholder='Type a message' />
         </div>
       </div>
@@ -26,6 +33,8 @@ const RightSidebar = () => {
                 image={user.img}      
                 name={user.username}
                 status={user.status}
+                selected={selected === user.id}
+                onSelect={() => setSelected(user.id)} 
               />
             );
           })
