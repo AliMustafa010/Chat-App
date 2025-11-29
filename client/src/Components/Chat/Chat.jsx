@@ -1,6 +1,8 @@
 import React from 'react'
 import "./Chat.css"
 
+import { BsArrowRightSquareFill } from "react-icons/bs";
+
 const Chat = ({ user }) => {
 
   if (!user) {
@@ -19,14 +21,19 @@ const Chat = ({ user }) => {
           <img src={user.img} alt="profile" />
         </div>
         <div className='chat-profile-status'>
-            <h4>{user.username}</h4>
-            <span>{user.status === 1 ? "Online" : "Offline"}</span>
+          <h4>{user.username}</h4>
+          <span>{user.status === 1 ? "Online" : "Offline"}</span>
         </div>
       </div>
 
       <div className="chat-chats"></div>
 
-      <div className="chat-input"></div>
+      <div className="chat-input">
+        <div className='chat-input-element'>
+          <input type='text' />
+          <BsArrowRightSquareFill className='chat-input-arrow'  />
+        </div>
+      </div>
 
     </div>
   );
