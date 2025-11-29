@@ -14,15 +14,16 @@ const HomePage = () => {
               <Sidebar />
             </div>
 
-            {/* Chat */}
-            <div className='chat-home'>
-              <Chat />
-            </div>
-
             {/* Right Sidebar */}
             <div className='right-sidebar-home'>
               <RightSidebar />
             </div>
+
+            {/* Chat */}
+            <div className='chat-home'>
+              <Chat />
+            </div>
+            
         </div>
     </div>
   )

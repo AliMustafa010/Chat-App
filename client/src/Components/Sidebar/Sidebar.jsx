@@ -30,7 +30,6 @@ const Sidebar = () => {
                     className={"sidebar-item-1" + (selected === "item1" ? " selected-sidebar-item" : "")}
                     onClick={() => handleSelect("item1")}
                 >
-                    <span className="sidebar-item-span"></span>
                     <Link to="">
                         <IoHomeOutline style={{ fontSize: "30px", color: "white" }} />
                     </Link>
@@ -40,7 +39,6 @@ const Sidebar = () => {
                     className={"sidebar-item-2" + (selected === "item2" ? " selected-sidebar-item" : "")}
                     onClick={() => handleSelect("item2")}
                 >
-                    <span className="sidebar-item-span"></span>
                     <Link to="">
                         <LuMessageSquare style={{ fontSize: "30px", color: "white" }} />
                     </Link>
@@ -50,7 +48,6 @@ const Sidebar = () => {
                     className={"sidebar-item-3" + (selected === "item3" ? " selected-sidebar-item" : "")}
                     onClick={() => handleSelect("item3")}
                 >
-                    <span className="sidebar-item-span"></span>
                     <Link to="">
                         <GoBell style={{ fontSize: "30px", color: "white" }} />
                     </Link>
@@ -60,7 +57,6 @@ const Sidebar = () => {
                     className={"sidebar-item-4" + (selected === "item4" ? " selected-sidebar-item" : "")}
                     onClick={() => handleSelect("item4")}
                 >
-                    <span className="sidebar-item-span"></span>
                     <Link to="">
                         <GoGear style={{ fontSize: "30px", color: "white" }} />
                     </Link>
