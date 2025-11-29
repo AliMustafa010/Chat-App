@@ -1,39 +1,56 @@
 import React from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from 'react-router-dom'
+import  avatar from "../../Asset/avatar.jpg"
 import "./Sidebar.css"
-import { 
-  faHome,
-  faMessage,
-  faBell,
-  faGear,
-  faDoorClosed,
-  faRightFromBracket
-} from "@fortawesome/free-solid-svg-icons";
+
+import { IoHomeOutline, IoLogOutOutline } from "react-icons/io5";
+import { FaRegMessage } from "react-icons/fa6";
+import { GoBell, GoGear } from "react-icons/go";
+import { LuMessageSquare } from "react-icons/lu";
+
 
 const Sidebar = () => {
   return (
     <div className='sidebar'>
-      <div className="sidebar">
-        Profile
-      </div>
-      <div className="sidebar">
-        <div className="sidebar-item-1">
-            <FontAwesomeIcon icon={faHome} /> Home
-        </div>
-        <div className="sidebar-item-2">
-            <FontAwesomeIcon icon={faMessage} /> Messages
-        </div>
-        <div className="sidebar-item-3">
-            <FontAwesomeIcon icon={faBell} /> Notifications
-        </div>
-        <div className="sidebar-item-4">
-            <FontAwesomeIcon icon={faGear} /> Settings
-        </div>
-      </div>
 
-      <div className="sidebar">
-        <FontAwesomeIcon icon={faRightFromBracket} /> Logout
-      </div>
+        {/* Sidebar Image */}
+        <div className="sidebar-profile">
+            <Link to="">
+                <img src={avatar} alt="profile" className='sidebar-profile-img' />
+            </Link>      
+        </div>
+
+        {/* Sidebar Items */}
+        <div className="sidebar-items">
+            <div className="sidebar-item-1">
+                <Link to="">
+                    <IoHomeOutline style={{fontSize : "30px" , color : "white"}} />
+                </Link>
+            </div>
+            <div className="sidebar-item-2">
+                <Link to="">
+                    <LuMessageSquare style={{fontSize : "30px" , color : "white" }} />
+                </Link>
+            </div>
+            <div className="sidebar-item-3">
+                <Link to="">
+                    <GoBell style={{fontSize : "30px" , color : "white"}} />
+                </Link>
+            </div>
+            <div className="sidebar-item-4">
+                <Link to="">
+                    <GoGear style={{fontSize : "30px" , color : "white"}} />
+                </Link>
+            </div>
+        </div>
+
+        {/* Sidebar Logout */}
+        <div className="sidebar-logout">
+            <Link to="">
+                <IoLogOutOutline style={{fontSize : "30px" , color : "white"}} />
+            </Link>
+        </div>
+
     </div>
   )
 }

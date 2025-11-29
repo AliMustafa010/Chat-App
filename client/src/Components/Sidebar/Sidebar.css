@@ -1,0 +1,40 @@
+.sidebar{
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    row-gap: 20px;
+    background-color: #1A66FF;
+    width: 100%;
+    border-radius: 16px;
+}
+
+.sidebar-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-profile-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebar-items{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.sidebar-item-1, .sidebar-item-2, .sidebar-item-3, .sidebar-item-4{
+    justify-content: center;
+    align-content: center;
+}
+
+.sidebar-logout{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+

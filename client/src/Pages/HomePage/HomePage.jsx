@@ -8,14 +8,18 @@ const HomePage = () => {
   return (
     <div className='home'>
         <div className='home-page'>
+
+            {/* Sidebar */}
             <div className='sidebar-home'>
               <Sidebar />
             </div>
 
+            {/* Chat */}
             <div className='chat-home'>
               <Chat />
             </div>
 
+            {/* Right Sidebar */}
             <div className='right-sidebar-home'>
               <RightSidebar />
             </div>
