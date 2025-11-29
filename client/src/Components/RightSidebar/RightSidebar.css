@@ -1,4 +1,23 @@
 .right-sidebar{
-    border: 1px solid white;
+    display: grid;
+    grid-template-rows: 1fr 6fr;
     width: 100%;
+}
+
+.right-sidebar-search-sub{
+    background-color: #0D0D0D;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.right-sidebar-chats{
+    background-color: #0D0D0D;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.right-sidebar-chats-chat{
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-bottom: 10px
 }

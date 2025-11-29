@@ -7,16 +7,17 @@ import Message from '../Message/Message';
 
 const RightSidebar = () => {
   return (
-    <div className="chat-container">
+    <div className="right-sidebar">
 
-      <div>
-        <div>
+      <div className='right-sidebar-search'>
+        <div className='right-sidebar-search-sub'>
           <IoIosSearch style={{ fontSize: "30px", color: "white" }} />
           <input type='text' placeholder='Type a message' />
         </div>
       </div>
 
-      <div>
+      <div className='right-sidebar-chats'>
+        <h2 className='right-sidebar-chats-chat'>Chats</h2>
         {
           users.map((user, index) => {
             return (

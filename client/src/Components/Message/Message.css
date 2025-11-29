@@ -1,0 +1,24 @@
+.message{
+    display: flex;
+    border-bottom: 1px solid #919191;
+    margin-bottom: 30px;
+}
+
+.message-img-element{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.message-info{
+
+}
+
+.message-name{
+    color: #FFFFFF;
+}
+
+.message-status span{
+    color: #FFFFFF;
+}
