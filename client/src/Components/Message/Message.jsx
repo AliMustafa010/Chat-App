@@ -20,12 +20,12 @@ const Message = ({image, name, status, selected, onSelect}) => {
 
             <div className='message-status'>
                 { status == 1 ? (
-                  <div> 
+                  <div className='message-status-element'> 
                     <FaCircle className='message-status-online' />
                     <span className='status-online'>Online</span>
                   </div>
                   ):(
-                    <div>
+                    <div className='message-status-element'>
                       <FaCircle className='message-status-offline' />
                       <span className='status-offline'>Offline</span>
                     </div>

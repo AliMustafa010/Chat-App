@@ -28,15 +28,21 @@
 }
 
 .message-status-online{
-    color: green;
-    font-size: 10px;
+    color: rgb(0, 255, 13);
+    font-size: 7px;
     margin-right: 5px;
 }
 
 .message-status-offline{
     color: lightgrey;
-    font-size: 10px;
+    font-size: 7px;
     margin-right: 5px;
+}
+
+.message-status-element{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center;
 }
 
 .message-status span{

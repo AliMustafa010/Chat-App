@@ -1,4 +1,40 @@
 .chat-container{
-    border: 1px solid white;
+    background-color: #0D0D0D;
+    border: 1px solid rgb(57, 56, 56);
+    border-radius: 16px;
+    padding: 20px;
     width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 8fr 1fr;
+}
+
+.child1, .child2, .child3{
+    border: 1px solid white;
+}
+
+.chat-profile{
+    display: flex;
+    border-bottom: 0.1px solid lightgray;
+}
+
+.chat-profile-status{
+    color: white;
+    margin-left: 10px;
+}
+
+.chat-profile-status h4{
+    font-size: 20px;
+    margin-bottom: -5px;
+}
+
+.chat-profile-status span{
+    font-size: 12px;
+}
+
+.chat-profile-img img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid gray;
 }

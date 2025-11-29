@@ -19,7 +19,7 @@ const Sidebar = () => {
 
             {/* Sidebar Image */}
             <div className="sidebar-profile">
-                <Link to="">
+                <Link to="/profile">
                     <img src={avatar} alt="profile" className="sidebar-profile-img" />
                 </Link>
             </div>

@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './HomePage.css'
 import Sidebar from '../../Components/Sidebar/Sidebar'
 import Chat from '../../Components/Chat/Chat'
 import RightSidebar from '../../Components/RightSidebar/RightSidebar'
 
 const HomePage = () => {
+
+  const [selectedUser, setSelectedUser] = useState(null);
+
   return (
     <div className='home'>
         <div className='home-page'>
@@ -14,14 +17,17 @@ const HomePage = () => {
               <Sidebar />
             </div>
 
-            {/* Right Sidebar */}
+            {/* Right Sidebar (send setSelectedUser to pick user) */}
             <div className='right-sidebar-home'>
-              <RightSidebar />
+              <RightSidebar 
+                onSelectUser={setSelectedUser} 
+                selectedUser={selectedUser}
+              />
             </div>
 
-            {/* Chat */}
+            {/* Chat (receives selectedUser) */}
             <div className='chat-home'>
-              <Chat />
+              <Chat user={selectedUser} />
             </div>
             
         </div>
