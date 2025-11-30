@@ -1,0 +1,74 @@
+.login-page-container{
+    display: grid;
+    grid-template-columns: 3fr auto 3fr;
+    grid-template-rows: 1fr auto 1fr;
+    height: 100vh;
+    background-image: url(../../Asset/signup-image.jpg);
+    background-size: cover;
+}
+
+.login-page{
+    display: grid;
+    grid-column: 2/3;
+    grid-row:  2/3;    
+    background-color: #222222;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 40px;
+    row-gap: 30px; 
+    width: 30vw;
+    justify-content: center;
+    align-content: start;
+}
+
+.login-page-head,
+.login-page-email,
+.login-page-password,
+.login-page-button-element{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 25vw;
+}
+
+.login-page-not{
+    color: white;
+    width: 25vw;
+}
+
+.login-page-not-register{
+    color: rgb(3, 247, 255);
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.login-page-email input,
+.login-page-password input{
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+    background-color: #0D0D0D;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.login-page-email label,
+.login-page-password label{
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.login-page-head{
+    font-size:xx-large;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-page-button-element{
+    background-color: #7b00ff;
+    color: white;
+    font-size: 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}

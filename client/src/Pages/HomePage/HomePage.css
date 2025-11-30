@@ -11,7 +11,7 @@
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     grid-template-columns: 1fr 4fr 6fr;
-    background-color: #222222;
+    background-color: #998b8b;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 30px;

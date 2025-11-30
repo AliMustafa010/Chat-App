@@ -15,7 +15,7 @@ const home = async (req, res) => {
 
 const register = async (req, res) => {
     try {
-        const { username, email, password, age, phone } = req.body;
+        const { username, email, password, phone } = req.body;
 
         const userExist = await User.findOne({ email : email });
         if (userExist) {
@@ -28,7 +28,6 @@ const register = async (req, res) => {
             username, 
             email, 
             password,
-            age, 
             phone
         });
 

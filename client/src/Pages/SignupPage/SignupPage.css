@@ -1,0 +1,81 @@
+.signup-page-container{
+    display: grid;
+    grid-template-columns: 3fr auto 3fr;
+    grid-template-rows: 1fr auto 1fr;
+    height: 100vh;
+    background-image: url(../../Asset/signup-image.jpg);
+    background-size: cover;
+}
+
+.signup-page{
+    display: grid;
+    grid-column: 2/3;
+    grid-row:  2/3;    
+    background-color: #222222;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 40px;
+    row-gap: 30px; 
+    width: 30vw;
+    justify-content: center;
+    align-content: start;
+}
+
+.signup-page-head,
+.signup-page-username,
+.signup-page-email,
+.signup-page-password,
+.signup-page-tel,
+.signup-page-button {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 25vw;
+}
+
+.signup-page-username input,
+.signup-page-email input,
+.signup-page-password input,
+.signup-page-tel input{
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+    background-color: #0D0D0D;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.signup-page-username label,
+.signup-page-email label,
+.signup-page-password label,
+.signup-page-tel label{
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.signup-page-head{
+    font-size:xx-large;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup-page-already{
+    color: white;
+    width: 25vw;
+}
+
+.signup-page-already-register{
+    color: rgb(3, 247, 255);
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+
+.signup-page-button button{
+    background-color: #7b00ff;
+    color: white;
+    font-size: 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
