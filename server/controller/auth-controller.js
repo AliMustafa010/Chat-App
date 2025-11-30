@@ -37,7 +37,7 @@ const register = async (req, res) => {
             status: 'ok', 
             message: userCreated, 
             userToken: await userCreated.generateToken(),
-            userId: userCreated.id > toString()
+            userId: userCreated.id.toString()
         });
     } catch (error) {
         res

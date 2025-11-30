@@ -54,7 +54,7 @@ userSchema.methods.generateToken = function() {
                 email: user.email,
             },
             process.env.JWT_SECRET,
-            { expiresIn: '30d' }
+            { expiresIn: '2d' }
         );
      } catch (err) {
         throw new Error('Token generation failed');

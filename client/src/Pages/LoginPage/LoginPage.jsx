@@ -1,32 +1,70 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from "axios"
 import "./LoginPage.css"
 import { Link } from 'react-router-dom'
 
 const LoginPage = () => {
+
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("")
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const user = {
+      email,
+      password,
+    };
+    console.log(user);
+
+    try {
+      const res = await axios.post("http://localhost:5000/login", user);
+
+      console.log(res.data);
+      alert("Login to Home!");
+      if(res.data.success) {
+        alert("Login successful!");
+        localStorage.setItem("loggedIn", "true");
+        navigate("/");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error loging");
+    }
+  };
+
   return (
     <div className='login-page-container'>
-        <div className='login-page'>
-          <div className="login-page-head">
-            Login
-          </div>
-          <div className='login-page-email'>
-            <label>Email</label>
-            <input type={"email"} />
-          </div>
-          <div className='login-page-password'>
-            <label>Password</label>
-            <input type={'password'} />
-          </div>
-          <div className='login-page-button'>
-             <Link to="/" style={{textDecoration : "none"}}>
-               <button className='login-page-button-element'>Login</button>
-             </Link>
-          </div>
-          <div className="login-page-not">
-            Not Subscribed ? 
-            <Link className='login-page-not-register' to="/signup"> Regsiter </Link>
-          </div>
+      <div className='login-page'>
+        <div className="login-page-head">
+          Login
         </div>
+        <div className='login-page-email'>
+          <label>Email</label>
+          <input
+            type={"email"}
+            value={email}
+            onChange={(e) => { setEmail(e.target.value) }}
+          />
+        </div>
+        <div className='login-page-password'>
+          <label>Password</label>
+          <input
+            type={'password'}
+            value={password}
+            onChange={(e) => { setPassword(e.target.value) }}
+          />
+        </div>
+        <div className='login-page-button'>
+          <button className='login-page-button-element' onClick={handleSubmit}>Login</button>
+        </div>
+        <div className="login-page-not">
+          Not Subscribed ?
+          <Link className='login-page-not-register' to="/signup"> Regsiter </Link>
+        </div>
+      </div>
     </div>
   )
 }
