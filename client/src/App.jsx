@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 import SignupPage from './Pages/SignupPage/SignupPage'
 import ContactPage from './Pages/ContactPage/ContactPage'
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute'
+import WebSocketComponent from './Components/WebSocketComponent'
 
 const App = () => {
   return (
@@ -44,6 +45,12 @@ const App = () => {
               element={
                 <ProfilePage />
               } 
+            />
+            <Route 
+              path="/web"
+              element={
+                <WebSocketComponent />
+              }
             />
         </Routes>
     </div>
