@@ -65,7 +65,7 @@ const Sidebar = () => {
 
             {/* Sidebar Logout */}
             <div className="sidebar-logout">
-                <Link to="">
+                <Link to="/login">
                     <IoLogOutOutline style={{ fontSize: "30px", color: "white" }} />
                 </Link>
             </div>

@@ -23,15 +23,14 @@ const LoginPage = () => {
       const res = await axios.post("http://localhost:5000/login", user);
 
       console.log(res.data);
-      alert("Login to Home!");
-      if(res.data.success) {
-        alert("Login successful!");
+      if (res.data.status === 'ok') {
         localStorage.setItem("loggedIn", "true");
         navigate("/");
+      } else {
+        alert("Login failed: " + res.data.message);
       }
     } catch (err) {
       console.error(err);
-      alert("Error loging");
     }
   };
 
