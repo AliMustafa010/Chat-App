@@ -25,6 +25,8 @@ const LoginPage = () => {
       console.log(res.data);
       if (res.data.status === 'ok') {
         localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("userToken", res.data.userToken);
+        localStorage.setItem("userId", res.data.userId);
         navigate("/");
       } else {
         alert("Login failed: " + res.data.message);

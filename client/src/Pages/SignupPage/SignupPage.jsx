@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import "./SignupPage.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const SignupPage = () => {
 
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +18,7 @@ const SignupPage = () => {
       username,
       email,
       password,
-      tel
+      phone: tel
     };
     console.log(user);
 
@@ -25,7 +26,14 @@ const SignupPage = () => {
       const res = await axios.post("http://localhost:5000/register", user);
 
       console.log(res.data);
-      alert("Saved to DB!");
+      if (res.data.status === 'ok') {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("userToken", res.data.userToken);
+        localStorage.setItem("userId", res.data.userId);
+        navigate("/");
+      } else {
+        alert("Registration failed: " + res.data.message);
+      }
     } catch (err) {
       console.error(err);
       alert("Error saving");
