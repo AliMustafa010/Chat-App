@@ -1,28 +1,38 @@
 import "./RightSidebar.css";
-import users from "../../dummyData";
 import { IoIosSearch } from "react-icons/io";
 import Message from "../Message/Message";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const RightSidebar = ({ selectedUser, onSelectUser }) => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/users")
+      .then(res => setUsers(res.data))
+      .catch(err => console.error("Failed to fetch users:", err));
+  }, []);
+
   return (
     <div className="right-sidebar">
-      <div className='right-sidebar-search'>
-        <div className='right-sidebar-search-sub'>
-          <IoIosSearch className='right-sidebar-search-icon' />
-          <input type='text' placeholder='Type a message' />
+      <div className="right-sidebar-search">
+        <div className="right-sidebar-search-sub">
+          <IoIosSearch className="right-sidebar-search-icon" />
+          <input type="text" placeholder="Search user..." />
         </div>
       </div>
 
-      <div className='right-sidebar-chats'>
-        <h2 className='right-sidebar-chats-chat'>Chats</h2>
+      <div className="right-sidebar-chats">
+        <h2 className="right-sidebar-chats-chat">Chats</h2>
 
         {users.map(user => (
           <Message
-            key={user.id}
-            image={user.img}
-            name={user.username}
-            status={user.status}
-            selected={selectedUser?.id === user.id}
+            key={user._id}                   
+            image={user.img}                  
+            name={user.username}               
+            status={user.status}               
+            selected={selectedUser?._id === user._id}
             onSelect={() => onSelectUser(user)}
           />
         ))}

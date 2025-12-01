@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const authRoute = require('./router/auth-router');
 const formRoute = require('./router/contact-router');
+const usersRoute = require("./router/profile-route")
 const connectDB = require('./Utilis/db');
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/', authRoute);
 app.use('/', formRoute);
+app.use('/', usersRoute);
 
 connectDB().then(() => {
   app.listen(PORT, () => {
