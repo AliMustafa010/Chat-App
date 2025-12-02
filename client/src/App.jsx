@@ -1,10 +1,8 @@
-import React from 'react'
 import HomePage from './Pages/HomePage/HomePage'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import ProfilePage from './Pages/ProfilePage/ProfilePage'
 import { Routes, Route } from 'react-router-dom'
 import SignupPage from './Pages/SignupPage/SignupPage'
-import ContactPage from './Pages/ContactPage/ContactPage'
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute'
 
 const App = () => {
@@ -33,12 +31,7 @@ const App = () => {
                 <SignupPage />
               } 
             />
-            <Route 
-              path='/contact' 
-              element={
-                <ContactPage />
-              } 
-            />
+
             <Route 
               path="/profile" 
               element={

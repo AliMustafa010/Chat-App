@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./ProfilePage.css"
 
 const ProfilePage = () => {
   const [img, setImg] = useState("");
@@ -7,8 +8,6 @@ const ProfilePage = () => {
   const userId = localStorage.getItem("userId");
 
   useEffect(() => {
-    if (!userId) return;
-
     axios
       .get("http://localhost:5000/users")
       .then((res) => {
@@ -27,17 +26,14 @@ const ProfilePage = () => {
     e.preventDefault();
 
     try {
-      // Send PUT request to backend update route
       const response = await axios.put("http://localhost:5000/profile", {
-        userId,    // send the userId to identify which user to update
+        userId,
         img,
         username,
       });
 
-      console.log("Profile updated:", response.data);
       alert("Profile updated successfully!");
     } catch (error) {
-      console.error("Failed to update profile:", error);
       alert("Failed to update profile.");
     }
   };
@@ -47,24 +43,34 @@ const ProfilePage = () => {
       <form className="profile-page" onSubmit={handleSubmit}>
         <h1>Update Profile</h1>
 
-        <label>Profile Image URL:</label>
-        <input
-          type="text"
-          placeholder="Enter image link..."
-          value={img}
-          onChange={(e) => setImg(e.target.value)}
-        />
+        <div>
+          <label>Profile Image URL:</label>
+          <div>
+            <input
+              type="text"
+              placeholder="Enter image link..."
+              value={img}
+              onChange={(e) => setImg(e.target.value)}
+            />
+          </div>
+        </div>
 
-        <label>Username:</label>
-        <input
-          type="text"
-          placeholder="Enter username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
+        <div>
+          <label>Username:</label>
+          <div>
+            <input
+              type="text"
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+        </div>
 
-        <button type="submit">Update</button>
+        <div>
+          <button type="submit">Update</button>
+        </div>
       </form>
     </div>
   );

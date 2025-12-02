@@ -70,3 +70,26 @@
     font-size: 25px;
     border-radius: 6px;
 }
+
+.chat-message {
+  max-width: 60%;
+  padding: 8px 12px;
+  margin: 6px 0;
+  border-radius: 15px;
+  clear: both;
+  word-wrap: break-word;
+}
+
+.chat-message-self {
+  background-color: #4a90e2;
+  color: white;
+  margin-left: auto;
+  text-align: right;
+}
+
+.chat-message-other {
+  background-color: #444;
+  color: white;
+  margin-right: auto;
+  text-align: left;
+}
