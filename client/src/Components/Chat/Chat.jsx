@@ -47,7 +47,6 @@ const Chat = ({ user, logUser }) => {
       }),
     };
 
-
     socketRef.current.emit("chat message", messageData);
     setInputMsg("");
   };
