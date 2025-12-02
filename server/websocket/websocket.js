@@ -16,7 +16,6 @@ function socketSetup(server) {
       try {
         const saved = await Message.create(msg);
         io.emit("chat message", saved);
-        console.log("message saved:", saved);
       } catch (err) {
         console.error("Error saving message:", err);
       }
@@ -29,3 +28,5 @@ function socketSetup(server) {
 }
 
 module.exports = socketSetup;
+
+

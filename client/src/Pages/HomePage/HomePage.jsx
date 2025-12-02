@@ -8,9 +8,8 @@ import axios from 'axios'
 const HomePage = () => {
 
   const [selectedUser, setSelectedUser] = useState(null);
-  const userId = localStorage.getItem("userId");
   const [users, setUsers] = useState([]);
-
+  const userId = localStorage.getItem("userId");
 
   useEffect(() => {
     axios
@@ -44,7 +43,7 @@ const HomePage = () => {
 
         {/* Chat (receives selectedUser) */}
         <div className='chat-home'>
-          <Chat user={selectedUser} />
+          <Chat user={selectedUser} logUser={loggedInUser}/>
         </div>
 
       </div>

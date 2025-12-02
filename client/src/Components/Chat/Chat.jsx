@@ -5,7 +5,7 @@ import { BsArrowRightSquareFill } from "react-icons/bs";
 
 const SOCKET_SERVER_URL = "http://localhost:5000";
 
-const Chat = ({ user }) => {
+const Chat = ({ user, logUser }) => {
   const [messages, setMessages] = useState([]);
   const [inputMsg, setInputMsg] = useState("");
   const socketRef = useRef();
@@ -35,7 +35,7 @@ const Chat = ({ user }) => {
     const messageData = {
       userId: user._id,
       username: user.username,
-      sender: user.username, 
+      sender: logUser.username,
       text: inputMsg,
       time: new Date().toLocaleTimeString([], {
         year: "numeric",
@@ -49,7 +49,6 @@ const Chat = ({ user }) => {
 
 
     socketRef.current.emit("chat message", messageData);
-    // setMessages((prev) => [...prev, messageData]);
     setInputMsg("");
   };
 
