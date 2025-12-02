@@ -1,8 +1,6 @@
 import "./RightSidebar.css";
 import { IoIosSearch } from "react-icons/io";
 import Message from "../Message/Message";
-import axios from "axios";
-import { useEffect, useState } from "react";
 
 const RightSidebar = ({users,  selectedUser, onSelectUser }) => {
   return (

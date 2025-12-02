@@ -25,4 +25,22 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, createUser };
+const updateUser = async (req, res) => {
+  try {
+    const { userId, img, username } = req.body;
+    
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { img, username },
+      { new: true } 
+    );
+
+    res.json({ message: "User updated successfully", user: updatedUser });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to update user" });
+  }
+};
+
+
+module.exports = { getUsers, createUser, updateUser };

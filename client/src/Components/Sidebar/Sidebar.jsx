@@ -1,33 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import avatar from "../../Asset/avatar.jpg";
 import "./Sidebar.css";
 
 import { IoHomeOutline, IoLogOutOutline } from "react-icons/io5";
 import { LuMessageSquare } from "react-icons/lu";
 import { GoBell, GoGear } from "react-icons/go";
-import axios from 'axios';
 
 const Sidebar = ({image}) => {
     const [selected, setSelected] = useState(null);
-    // const userId = localStorage.getItem("userId");
-    // const [users, setUsers] = useState([]);
 
     const handleSelect = (item) => {
         setSelected(item);
     };
-
-
-    // useEffect(() => {
-    //     axios
-    //         .get("http://localhost:5000/users")
-    //         .then(res => {
-    //             setUsers(res.data);
-    //         })
-    //         .catch(err => console.error("Failed to fetch users:", err));
-    // }, []);
-
-    // const loggedInUser = users.find((u) => u._id === userId);
 
     return (
         <div className="sidebar">

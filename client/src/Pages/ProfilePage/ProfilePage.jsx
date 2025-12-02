@@ -1,96 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./ProfilePage.css"
 
 const ProfilePage = () => {
   const [img, setImg] = useState("");
   const [username, setUsername] = useState("");
-  const [status, setStatus] = useState(0);
+  const userId = localStorage.getItem("userId");
+
+  useEffect(() => {
+    if (!userId) return;
+
+    axios
+      .get("http://localhost:5000/users")
+      .then((res) => {
+        const loggedInUser = res.data.find((user) => user._id === userId);
+        if (loggedInUser) {
+          setImg(loggedInUser.img || "");
+          setUsername(loggedInUser.username || "");
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to fetch users:", err);
+      });
+  }, [userId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const userData = {
+      // Send PUT request to backend update route
+      const response = await axios.put("http://localhost:5000/profile", {
+        userId,    // send the userId to identify which user to update
         img,
         username,
-        status: status === 1 ? "online" : "offline"
-      };
+      });
 
-      const res = await axios.post("http://localhost:5000/users", userData);
-
-      console.log("User created:", res.data);
-      alert("User created successfully!");
-
-      setImg("");
-      setUsername("");
-      setStatus(0);
+      console.log("Profile updated:", response.data);
+      alert("Profile updated successfully!");
     } catch (error) {
-      console.error(error);
-      alert("Failed to create user");
+      console.error("Failed to update profile:", error);
+      alert("Failed to update profile.");
     }
   };
 
   return (
     <div className="profile">
-
       <form className="profile-page" onSubmit={handleSubmit}>
-        <h1>Create Profile</h1>
+        <h1>Update Profile</h1>
 
-        {/* IMAGE INPUT */}
-        <div>
-          <label>Profile Image URL:</label>
-          <div>
-            <input
-            type="text"
-            placeholder="Enter image link..."
-            value={img}
-            onChange={(e) => setImg(e.target.value)}
-          />
-          </div>
-        </div>
+        <label>Profile Image URL:</label>
+        <input
+          type="text"
+          placeholder="Enter image link..."
+          value={img}
+          onChange={(e) => setImg(e.target.value)}
+        />
 
-        {/* PREVIEW */}
-        <div>
-          {img && (
-            <img
-              src={img}
-              alt="preview"
-            />
-          )}
-        </div>
+        <label>Username:</label>
+        <input
+          type="text"
+          placeholder="Enter username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
 
-        {/* USERNAME INPUT */}
-        <div>
-          <label>Username:</label>
-          <div>
-            <input
-            type="text"
-            placeholder="Enter username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          </div>
-        </div>
-
-        {/* STATUS INPUT */}
-        <div>
-          <label>Status:</label>
-          <div>
-            <select value={status} onChange={(e) => setStatus(Number(e.target.value))}>
-            <option value={0}>Offline</option>
-            <option value={1}>Online</option>
-          </select>
-          </div>
-        </div>
-
-        {/* SUBMIT BUTTON */}
-        <div>
-          <button type="submit">
-            Update
-          </button>
-        </div>
+        <button type="submit">Update</button>
       </form>
     </div>
   );
