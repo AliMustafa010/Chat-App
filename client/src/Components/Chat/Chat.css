@@ -1,5 +1,9 @@
-.chat-container{
-    background-color: #0D0D0D;
+.chat-container {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("../../Asset/chat-bg.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
     border: 1px solid rgb(57, 56, 56);
     border-radius: 16px;
     padding: 20px;
@@ -8,30 +12,32 @@
     grid-template-rows: 1fr 8fr 1fr;
 }
 
-.child1, .child2, .child3{
+.child1,
+.child2,
+.child3 {
     border: 1px solid white;
 }
 
-.chat-profile{
+.chat-profile {
     display: flex;
-    border-bottom: 0.1px solid lightgray;
+    border-bottom: 0.1px solid rgb(81, 81, 81);
 }
 
-.chat-profile-status{
+.chat-profile-status {
     color: white;
     margin-left: 10px;
 }
 
-.chat-profile-status h4{
+.chat-profile-status h4 {
     font-size: 20px;
     margin-bottom: -5px;
 }
 
-.chat-profile-status span{
+.chat-profile-status span {
     font-size: 12px;
 }
 
-.chat-profile-img img{
+.chat-profile-img img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -39,11 +45,11 @@
     border: 1px solid gray;
 }
 
-.chat-input{
-    border-top: 0.1px solid lightgray;
+.chat-input {
+    border-top: 0.1px solid rgb(81, 81, 81);
 }
 
-.chat-input-element{
+.chat-input-element {
     display: flex;
     background-color: rgb(61, 61, 61);
     padding: 10px;
@@ -51,7 +57,7 @@
     margin-top: 20px;
 }
 
-.chat-input-element input{
+.chat-input-element input {
     background-color: transparent;
     border: none;
     font-size: 15px;
@@ -59,37 +65,59 @@
     width: 95%;
 }
 
-.chat-input-element input:focus{
+.chat-input-element input:focus {
     outline: none;
     border: none;
     box-shadow: none;
 }
 
-.chat-input-arrow{
+.chat-input-arrow {
     color: white;
     font-size: 25px;
     border-radius: 6px;
 }
 
 .chat-message {
-  max-width: 60%;
-  padding: 8px 12px;
-  margin: 6px 0;
-  border-radius: 15px;
-  clear: both;
-  word-wrap: break-word;
+    max-width: 60%;
+    padding: 8px 12px;
+    margin: 6px 0;
+    border-radius: 15px;
+    clear: both;
+    word-wrap: break-word;
 }
 
 .chat-message-self {
-  background-color: #4a90e2;
-  color: white;
-  margin-left: auto;
-  text-align: right;
+    background-color: #00499c;
+    color: white;
+    margin-left: auto;
+    text-align: right;
+    width: 40%;
 }
 
 .chat-message-other {
-  background-color: #444;
-  color: white;
-  margin-right: auto;
-  text-align: left;
+    background-color: #444;
+    color: white;
+    margin-right: auto;
+    text-align: left;
+    width: 40%;
+}
+
+.chat-chats {
+    padding: 20px;
+}
+
+.chat-chats::-webkit-scrollbar {
+    width: 4px;
+}
+
+.chat-chats::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-chats::-webkit-scrollbar-thumb {
+    background-color: #3a3a3a;
+}
+
+.chat-chats::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
 }

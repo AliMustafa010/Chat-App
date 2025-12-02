@@ -38,14 +38,21 @@ const ProfilePage = () => {
     }
   };
 
+  useEffect(() => {
+    fetch("http://localhost:5000/messages")
+      .then(res => res.json())
+      .then(data => setMessages(data));
+  }, []);
+
+
   return (
     <div className="profile">
       <form className="profile-page" onSubmit={handleSubmit}>
         <h1>Update Profile</h1>
 
-        <div>
+        <div className="profile-page-image-update">
           <label>Profile Image URL:</label>
-          <div>
+          <div className="profile-page-image">
             <input
               type="text"
               placeholder="Enter image link..."
@@ -55,9 +62,9 @@ const ProfilePage = () => {
           </div>
         </div>
 
-        <div>
+        <div className="profile-page-username-update">
           <label>Username:</label>
-          <div>
+          <div className="profile-page-username">
             <input
               type="text"
               placeholder="Enter username"
@@ -68,8 +75,13 @@ const ProfilePage = () => {
           </div>
         </div>
 
-        <div>
-          <button type="submit">Update</button>
+        <div className="profile-page-update-btn">
+          <button type="submit" style={{ backgroundColor: "green" }}>Update</button>
+        </div>
+
+        <div className="profile-page-delete-btn">
+          <button type="submit" style={{ backgroundColor: "red" }}>Delete Account</button>
+          <div><p>This will permanently delete account.</p></div>
         </div>
       </form>
     </div>

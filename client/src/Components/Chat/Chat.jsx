@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 import "./Chat.css";
-
 import { BsArrowRightSquareFill } from "react-icons/bs";
 
 const SOCKET_SERVER_URL = "http://localhost:5000";
@@ -10,6 +9,13 @@ const Chat = ({ user }) => {
   const [messages, setMessages] = useState([]);
   const [inputMsg, setInputMsg] = useState("");
   const socketRef = useRef();
+
+  useEffect(() => {
+    fetch("http://localhost:5000/messages")
+      .then((res) => res.json())
+      .then((data) => setMessages(data))
+      .catch((err) => console.error("Failed to load messages:", err));
+  }, []);
 
   useEffect(() => {
     socketRef.current = io(SOCKET_SERVER_URL);
@@ -29,13 +35,21 @@ const Chat = ({ user }) => {
     const messageData = {
       userId: user._id,
       username: user.username,
+      sender: user.username, 
       text: inputMsg,
-      timestamp: new Date().toISOString(),
+      time: new Date().toLocaleTimeString([], {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      }),
     };
 
-    socketRef.current.emit("chat message", messageData);
 
-    setMessages((prev) => [...prev, messageData]);
+    socketRef.current.emit("chat message", messageData);
+    // setMessages((prev) => [...prev, messageData]);
     setInputMsg("");
   };
 
@@ -47,9 +61,8 @@ const Chat = ({ user }) => {
   };
 
   if (!user) {
-    return <div>Please select a user to start chatting.</div>;
+    return <div style={{ color: "white" }}>Please select a user to start chatting.</div>;
   }
-
 
   return (
     <div className="chat-container">
@@ -63,15 +76,14 @@ const Chat = ({ user }) => {
         </div>
       </div>
 
-      <div className="chat-chats" style={{ overflowY: "auto", maxHeight: "300px" }}>
+      <div className="chat-chats" style={{ overflowY: "auto" }}>
         {messages.map((msg, idx) => (
           <div
             key={idx}
-            className={`chat-message ${msg.userId === user._id ? "chat-message-self" : "chat-message-other"
-              }`}
+            className={`chat-message ${msg.userId === user._id ? "chat-message-self" : "chat-message-other"}`}
           >
-            {/* <strong style={{ color: "white" }}>{msg.username}: </strong> */}
-            <span style={{ color: "white" }}>{msg.text}</span>
+            <p style={{ color: "white" }}>{msg.text}</p>
+            <p style={{ color: "lightgray", fontSize: "10px" }}>{msg.time}</p>
           </div>
         ))}
       </div>

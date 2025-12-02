@@ -42,5 +42,14 @@ const updateUser = async (req, res) => {
   }
 };
 
+const deleteUser = async (req, res) => {
+  try {
+    res.json(res);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to update user" });
+  }
+}
 
-module.exports = { getUsers, createUser, updateUser };
+
+module.exports = { getUsers, createUser, updateUser, deleteUser };

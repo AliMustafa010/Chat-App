@@ -15,6 +15,40 @@
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 30px;
-    column-gap: 20px;
     color: white;
+}
+
+.profile-page-image, .profile-page-username{
+    background-color: rgb(61, 61, 61);
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+}
+
+.profile-page-image input, .profile-page-username input{
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    font-size: 15px;
+}
+
+.profile-page-image-update label, .profile-page-username-update label{
+    color: white;
+    font-size: 20px;
+}
+
+.profile-page-update-btn button, .profile-page-delete-btn button{
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.profile-page-delete-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
 }
