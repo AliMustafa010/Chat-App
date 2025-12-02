@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const authRoute = require('./router/auth-router');
 const formRoute = require('./router/contact-router');
-const usersRoute = require("./router/profile-route")
+const usersRoute = require("./router/user-route")
 const connectDB = require('./Utilis/db');
 
 const app = express();

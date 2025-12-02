@@ -3,6 +3,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
+    img: {
+        type: String,
+        default: "https://i.pravatar.cc/150?u=default"
+    },
     username: { 
         type: String, 
         required: true,

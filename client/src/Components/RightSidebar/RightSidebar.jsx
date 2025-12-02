@@ -4,16 +4,7 @@ import Message from "../Message/Message";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const RightSidebar = ({ selectedUser, onSelectUser }) => {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/users")
-      .then(res => setUsers(res.data))
-      .catch(err => console.error("Failed to fetch users:", err));
-  }, []);
-
+const RightSidebar = ({users,  selectedUser, onSelectUser }) => {
   return (
     <div className="right-sidebar">
       <div className="right-sidebar-search">

@@ -3,7 +3,7 @@
     grid-template-rows: 1fr 8fr 1fr;
     grid-template-columns: 1fr 8fr 1fr;
     height: 100vh;
-    background-color: lightgray;
+    background-image: url("../../Asset/signup-image.jpg");
 }
 
 .home-page{
