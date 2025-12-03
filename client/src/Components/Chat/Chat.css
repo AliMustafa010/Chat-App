@@ -84,6 +84,8 @@
     border-radius: 15px;
     clear: both;
     word-wrap: break-word;
+    position: relative;
+    padding-right: 30px;
 }
 
 .chat-message-self {

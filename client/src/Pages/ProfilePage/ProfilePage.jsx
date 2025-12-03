@@ -38,6 +38,24 @@ const ProfilePage = () => {
     }
   };
 
+  const handleDelete = async () => {
+    if (!window.confirm("Are you sure you want to delete your account permanently?")) {
+      return;
+    }
+
+    try {
+      await axios.delete(`http://localhost:5000/profile/${userId}`);
+
+      alert("Your account has been deleted.");
+      localStorage.removeItem("userId");
+      window.location.href = "/login";
+    } catch (error) {
+      alert("Failed to delete account.");
+      console.log(error);
+    }
+  };
+
+
   useEffect(() => {
     fetch("http://localhost:5000/messages")
       .then(res => res.json())
@@ -76,11 +94,19 @@ const ProfilePage = () => {
         </div>
 
         <div className="profile-page-update-btn">
-          <button type="submit" style={{ backgroundColor: "green" }}>Update</button>
+          <button 
+            type="submit" 
+            style={{ backgroundColor: "green" }}
+            onClick={handleSubmit}
+          >Update</button>
         </div>
 
         <div className="profile-page-delete-btn">
-          <button type="submit" style={{ backgroundColor: "red" }}>Delete Account</button>
+          <button 
+            type="submit" 
+            style={{ backgroundColor: "red" }}
+            onClick={handleDelete}
+          >Delete Account</button>
           <div><p>This will permanently delete account.</p></div>
         </div>
       </form>

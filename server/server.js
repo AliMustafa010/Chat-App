@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const http = require('http');
+
 const socketSetup = require('./websocket/websocket')
 const authRoute = require('./router/auth-router');
 const usersRoute = require("./router/user-router");
@@ -16,6 +17,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
 app.use('/', authRoute);
 app.use('/', usersRoute);
 app.use('/', messageRoute);

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 import "./Chat.css";
 import { BsArrowRightSquareFill } from "react-icons/bs";
+import { MdOutlineDelete } from "react-icons/md";
 
 const SOCKET_SERVER_URL = "http://localhost:5000";
 
@@ -58,6 +59,10 @@ const Chat = ({ user, logUser }) => {
     }
   };
 
+  const deleteForMe = (index) => {
+    setMessages((prev) => prev.filter((_, i) => i !== index));
+  };
+
   if (!user) {
     return <div style={{ color: "white" }}>Please select a user to start chatting.</div>;
   }
@@ -80,8 +85,10 @@ const Chat = ({ user, logUser }) => {
             key={idx}
             className={`chat-message ${msg.userId === user._id ? "chat-message-self" : "chat-message-other"}`}
           >
-            <p style={{ color: "white" }}>{msg.text}</p>
-            <p style={{ color: "lightgray", fontSize: "10px" }}>{msg.time}</p>
+            <div className="chat-message-content">
+              <p style={{ color: "white" }}>{msg.text}</p>
+              <p style={{ color: "lightgray", fontSize: "10px" }}>{msg.time}</p>
+            </div>
           </div>
         ))}
       </div>
