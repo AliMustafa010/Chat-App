@@ -6,9 +6,13 @@ A simple real-time chat application (React + Express + MongoDB). This repository
 
 <img width="1920" height="931" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/945da41e-91ee-4a72-a983-c619897f5fc6" />
 
+
+
 **User 2** **alikhan**
 
 <img width="1920" height="926" alt="Screenshot (16)" src="https://github.com/user-attachments/assets/c8e98e83-ead8-4da5-b921-318597f75868" />
+
+
 
 **Contents**
 - `client/` — React frontend built with Vite
