@@ -2,6 +2,12 @@
 
 A simple real-time chat application (React + Express + MongoDB). This repository contains a `client` (Vite/React) and a `server` (Express) folder. The app supports user registration, login, protected routes, and basic messaging.
 
+**User 1"" **alimustafakhan**
+<img width="1920" height="931" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/945da41e-91ee-4a72-a983-c619897f5fc6" />
+
+**User 2"" **alikhan**
+![Uploading Screenshot (16).png…]()
+
 **Contents**
 - `client/` — React frontend built with Vite
 - `server/` — Express backend with auth and API routes
