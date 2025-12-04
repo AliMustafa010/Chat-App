@@ -4,7 +4,7 @@ A simple real-time chat application (React + Express + MongoDB). This repository
 
 **User 1** **alimustafakhan**
 
-<img width="1920" height="931" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/945da41e-91ee-4a72-a983-c619897f5fc6" />
+<img width="1891" height="931" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/30b0cc88-06cd-47e0-aa03-e3b59811c483" />
 
 
 
