@@ -67,6 +67,3 @@ Open the client in a browser (Vite normally runs at `http://localhost:5173` or t
 
 **License & Contributing**
 This project is for learning/demonstration. Feel free to open issues or contribute improvements.
-
----
-_Generated README — adjust environment values and scripts to match your local setup._
