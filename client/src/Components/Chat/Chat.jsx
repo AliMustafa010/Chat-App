@@ -9,99 +9,53 @@ const SOCKET_SERVER_URL = "http://localhost:5000";
 const Chat = ({ user, logUser }) => {
   const [messages, setMessages] = useState([]);
   const [inputMsg, setInputMsg] = useState("");
-  const socketRef = useRef();
-  const currentUserRef = useRef(user);
-  const currentLogUserRef = useRef(logUser);
-  const isMountedRef = useRef(false);
-  const fetchReqIdRef = useRef(0);
+  const socketRef = useRef(null);
 
   useEffect(() => {
-    isMountedRef.current = true;
-    return () => {
-      isMountedRef.current = false;
-    };
-  }, []);
+    if (!user?._id || !logUser?._id) return;
 
-  useEffect(() => {
-    currentUserRef.current = user;
-  }, [user]);
-
-  useEffect(() => {
-    currentLogUserRef.current = logUser;
-  }, [logUser]);
-
-  useEffect(() => {
     setMessages([]);
 
-    fetchReqIdRef.current += 1;
-    const thisFetchId = fetchReqIdRef.current;
-
-    if (!user || !user._id || !logUser || !logUser._id) {
-      return;
-    }
-
-    fetch(`http://localhost:5000/messages?me=${encodeURIComponent(logUser._id)}&other=${encodeURIComponent(user._id)}`)
+    fetch(`http://localhost:5000/messages?me=${logUser._id}&other=${user._id}`)
       .then((res) => res.json())
-      .then((data) => {
-        if (!isMountedRef.current) return;
-        if (thisFetchId !== fetchReqIdRef.current) return;
-        setMessages(data);
-      })
+      .then((data) => setMessages(data))
       .catch((err) => console.error("Failed to load messages:", err));
   }, [user, logUser]);
 
   useEffect(() => {
-    socketRef.current = io(SOCKET_SERVER_URL);
+    const socket = io(SOCKET_SERVER_URL);
+    socketRef.current = socket;
 
-    socketRef.current.on("chat message", (msg) => {
-      try {
-
-        const curUser = currentUserRef.current;
-        const curLogUser = currentLogUserRef.current;
-        if (!curUser || !curLogUser) return;
-
-        const belongsToConversation =
-          (msg.userId === curUser._id && msg.senderId === curLogUser._id) ||
-          (msg.userId === curLogUser._id && msg.senderId === curUser._id);
-
-        if (!belongsToConversation) return;
-
-        if (!isMountedRef.current) return;
-
-        setMessages((prev) => {
-          if (msg._id && prev.some((m) => m._id === msg._id)) return prev;
-          if (prev.some((m) => m.text === msg.text && m.time === msg.time && m.senderId === msg.senderId)) return prev;
-          return [...prev, msg];
-        });
-      } catch (err) {
-        console.error("Error handling incoming socket message:", err);
-      }
-    });
-
-    socketRef.current.on("connect", () => {
-      if (logUser && logUser._id) socketRef.current.emit("register", logUser._id);
-    });
-
-    return () => {
-      socketRef.current.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (socketRef.current && logUser && logUser._id) {
-      socketRef.current.emit("register", logUser._id);
+    if (logUser?._id) {
+      socket.emit("register", logUser._id);
     }
-  }, [logUser]);
+
+    socket.on("chat message", (msg) => {
+      if (!user?._id || !logUser?._id) return;
+
+      const isForThisChat =
+        (msg.senderId === logUser._id && msg.userId === user._id) ||
+        (msg.senderId === user._id && msg.userId === logUser._id);
+
+      if (!isForThisChat) return;
+
+      setMessages((prev) => {
+        if (prev.some((m) => m._id === msg._id)) return prev;
+        return [...prev, msg];
+      });
+    });
+
+    return () => socket.disconnect();
+  }, [logUser, user]);
 
   const sendMessage = () => {
-    if (!inputMsg.trim()) return;
-    if (!user || !user._id || !logUser || !logUser._id) return;
+    if (!inputMsg.trim() || !user?._id || !logUser?._id) return;
 
     const messageData = {
       userId: user._id,
       username: user.username,
-      sender: logUser.username,
       senderId: logUser._id,
+      sender: logUser.username,
       text: inputMsg,
       time: new Date().toLocaleTimeString([], {
         year: "numeric",
