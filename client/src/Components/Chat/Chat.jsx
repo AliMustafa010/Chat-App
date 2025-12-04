@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 import "./Chat.css";
 import { BsArrowRightSquareFill } from "react-icons/bs";
-import { MdOutlineDelete } from "react-icons/md";
+// import { MdOutlineDelete } from "react-icons/md";
 
 const SOCKET_SERVER_URL = "http://localhost:5000";
 
@@ -10,19 +10,76 @@ const Chat = ({ user, logUser }) => {
   const [messages, setMessages] = useState([]);
   const [inputMsg, setInputMsg] = useState("");
   const socketRef = useRef();
+  const currentUserRef = useRef(user);
+  const currentLogUserRef = useRef(logUser);
+  const isMountedRef = useRef(false);
+  const fetchReqIdRef = useRef(0);
 
   useEffect(() => {
-    fetch("http://localhost:5000/messages")
-      .then((res) => res.json())
-      .then((data) => setMessages(data))
-      .catch((err) => console.error("Failed to load messages:", err));
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
   }, []);
+
+  useEffect(() => {
+    currentUserRef.current = user;
+  }, [user]);
+
+  useEffect(() => {
+    currentLogUserRef.current = logUser;
+  }, [logUser]);
+
+  useEffect(() => {
+    setMessages([]);
+
+    fetchReqIdRef.current += 1;
+    const thisFetchId = fetchReqIdRef.current;
+
+    if (!user || !user._id || !logUser || !logUser._id) {
+      return;
+    }
+
+    fetch(`http://localhost:5000/messages?me=${encodeURIComponent(logUser._id)}&other=${encodeURIComponent(user._id)}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!isMountedRef.current) return;
+        if (thisFetchId !== fetchReqIdRef.current) return;
+        setMessages(data);
+      })
+      .catch((err) => console.error("Failed to load messages:", err));
+  }, [user, logUser]);
 
   useEffect(() => {
     socketRef.current = io(SOCKET_SERVER_URL);
 
     socketRef.current.on("chat message", (msg) => {
-      setMessages((prev) => [...prev, msg]);
+      try {
+
+        const curUser = currentUserRef.current;
+        const curLogUser = currentLogUserRef.current;
+        if (!curUser || !curLogUser) return;
+
+        const belongsToConversation =
+          (msg.userId === curUser._id && msg.senderId === curLogUser._id) ||
+          (msg.userId === curLogUser._id && msg.senderId === curUser._id);
+
+        if (!belongsToConversation) return;
+
+        if (!isMountedRef.current) return;
+
+        setMessages((prev) => {
+          if (msg._id && prev.some((m) => m._id === msg._id)) return prev;
+          if (prev.some((m) => m.text === msg.text && m.time === msg.time && m.senderId === msg.senderId)) return prev;
+          return [...prev, msg];
+        });
+      } catch (err) {
+        console.error("Error handling incoming socket message:", err);
+      }
+    });
+
+    socketRef.current.on("connect", () => {
+      if (logUser && logUser._id) socketRef.current.emit("register", logUser._id);
     });
 
     return () => {
@@ -30,13 +87,21 @@ const Chat = ({ user, logUser }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (socketRef.current && logUser && logUser._id) {
+      socketRef.current.emit("register", logUser._id);
+    }
+  }, [logUser]);
+
   const sendMessage = () => {
     if (!inputMsg.trim()) return;
+    if (!user || !user._id || !logUser || !logUser._id) return;
 
     const messageData = {
       userId: user._id,
       username: user.username,
       sender: logUser.username,
+      senderId: logUser._id,
       text: inputMsg,
       time: new Date().toLocaleTimeString([], {
         year: "numeric",
@@ -80,17 +145,27 @@ const Chat = ({ user, logUser }) => {
       </div>
 
       <div className="chat-chats" style={{ overflowY: "auto" }}>
-        {messages.map((msg, idx) => (
-          <div
-            key={idx}
-            className={`chat-message ${msg.userId === user._id ? "chat-message-self" : "chat-message-other"}`}
-          >
-            <div className="chat-message-content">
-              <p style={{ color: "white" }}>{msg.text}</p>
-              <p style={{ color: "lightgray", fontSize: "10px" }}>{msg.time}</p>
+        {messages
+          .filter((msg) => {
+            // show only messages that belong to the active conversation
+            if (!msg) return false;
+            if (!msg.userId || !msg.senderId) return false;
+            return (
+              (msg.userId === user._id && msg.senderId === logUser._id) ||
+              (msg.userId === logUser._id && msg.senderId === user._id)
+            );
+          })
+          .map((msg, idx) => (
+            <div
+              key={idx}
+              className={`chat-message ${msg.userId === user._id ? "chat-message-self" : "chat-message-other"}`}
+            >
+              <div className="chat-message-content">
+                <p style={{ color: "white" }}>{msg.text}</p>
+                <p style={{ color: "lightgray", fontSize: "10px" }}>{msg.time}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
 
       <div className="chat-input">
