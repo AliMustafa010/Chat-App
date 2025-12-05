@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 import "./Chat.css";
 import { BsArrowRightSquareFill } from "react-icons/bs";
-// import { MdOutlineDelete } from "react-icons/md";
 
 const SOCKET_SERVER_URL = "http://localhost:5000";
 
@@ -78,10 +77,6 @@ const Chat = ({ user, logUser }) => {
     }
   };
 
-  const deleteForMe = (index) => {
-    setMessages((prev) => prev.filter((_, i) => i !== index));
-  };
-
   if (!user) {
     return <div style={{ color: "white" }}>Please select a user to start chatting.</div>;
   }
@@ -101,7 +96,6 @@ const Chat = ({ user, logUser }) => {
       <div className="chat-chats" style={{ overflowY: "auto" }}>
         {messages
           .filter((msg) => {
-            // show only messages that belong to the active conversation
             if (!msg) return false;
             if (!msg.userId || !msg.senderId) return false;
             return (
