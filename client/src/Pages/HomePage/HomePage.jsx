@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
 import './HomePage.css'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import Sidebar from '../../Components/Sidebar/Sidebar'
 import Chat from '../../Components/Chat/Chat'
 import RightSidebar from '../../Components/RightSidebar/RightSidebar'
-import axios from 'axios'
 
 const HomePage = () => {
 
@@ -27,12 +27,10 @@ const HomePage = () => {
     <div className='home'>
       <div className='home-page'>
 
-        {/* Sidebar */}
         <div className='sidebar-home'>
           <Sidebar image={loggedInUser?.img} />
         </div>
 
-        {/* Right Sidebar (send setSelectedUser to pick user) */}
         <div className='right-sidebar-home'>
           <RightSidebar
             users={usersWithoutLoggedIn}
@@ -41,7 +39,6 @@ const HomePage = () => {
           />
         </div>
 
-        {/* Chat (receives selectedUser) */}
         <div className='chat-home'>
           <Chat user={selectedUser} logUser={loggedInUser}/>
         </div>

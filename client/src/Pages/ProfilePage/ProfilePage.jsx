@@ -1,6 +1,7 @@
+import "./ProfilePage.css"
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./ProfilePage.css"
+
 
 const ProfilePage = () => {
   const [img, setImg] = useState("");
