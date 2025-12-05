@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import "./Sidebar.css";
+import { useState} from 'react';
+import { Link } from 'react-router-dom';
 
 import { IoHomeOutline, IoLogOutOutline } from "react-icons/io5";
 import { LuMessageSquare } from "react-icons/lu";

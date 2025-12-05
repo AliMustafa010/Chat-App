@@ -1,7 +1,7 @@
 import "./RightSidebar.css";
-import { IoIosSearch } from "react-icons/io";
 import Message from "../Message/Message";
 import { useState } from "react";
+import { IoIosSearch } from "react-icons/io";
 
 const RightSidebar = ({ users, selectedUser, onSelectUser }) => {
   const [searchTerm, setSearchTerm] = useState("");

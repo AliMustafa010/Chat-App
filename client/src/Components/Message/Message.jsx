@@ -1,4 +1,3 @@
-import React from 'react'
 import "./Message.css"
 
 import { FaCircle } from "react-icons/fa";

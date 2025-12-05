@@ -1,6 +1,6 @@
+import "./Chat.css";
 import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
-import "./Chat.css";
 import { BsArrowRightSquareFill } from "react-icons/bs";
 
 const SOCKET_SERVER_URL = "http://localhost:5000";
