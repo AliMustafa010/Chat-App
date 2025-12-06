@@ -33,6 +33,7 @@ const HomePage = () => {
 
         <div className='right-sidebar-home'>
           <RightSidebar
+            loggedUser={loggedInUser}
             users={usersWithoutLoggedIn}
             onSelectUser={setSelectedUser}
             selectedUser={selectedUser}

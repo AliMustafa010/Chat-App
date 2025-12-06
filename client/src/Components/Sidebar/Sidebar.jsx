@@ -34,7 +34,7 @@ const Sidebar = ({image}) => {
                     onClick={() => handleSelect("item1")}
                 >
                     <Link to="">
-                        <IoHomeOutline style={{ fontSize: "30px", color: "white" }} />
+                        <IoHomeOutline className="sidebar-item-icon" />
                     </Link>
                 </div>
 
@@ -43,7 +43,7 @@ const Sidebar = ({image}) => {
                     onClick={() => handleSelect("item2")}
                 >
                     <Link to="">
-                        <LuMessageSquare style={{ fontSize: "30px", color: "white" }} />
+                        <LuMessageSquare className="sidebar-item-icon" />
                     </Link>
                 </div>
 
@@ -52,7 +52,7 @@ const Sidebar = ({image}) => {
                     onClick={() => handleSelect("item3")}
                 >
                     <Link to="">
-                        <GoBell style={{ fontSize: "30px", color: "white" }} />
+                        <GoBell className="sidebar-item-icon" />
                     </Link>
                 </div>
 
@@ -61,7 +61,7 @@ const Sidebar = ({image}) => {
                     onClick={() => handleSelect("item4")}
                 >
                     <Link to="">
-                        <GoGear style={{ fontSize: "30px", color: "white" }} />
+                        <GoGear className="sidebar-item-icon" />
                     </Link>
                 </div>
             </div>
@@ -69,7 +69,7 @@ const Sidebar = ({image}) => {
             {/* Sidebar Logout */}
             <div className="sidebar-logout">
                 <Link to="/login">
-                    <IoLogOutOutline style={{ fontSize: "30px", color: "white" }} />
+                    <IoLogOutOutline className="sidebar-item-icon" />
                 </Link>
             </div>
         </div>

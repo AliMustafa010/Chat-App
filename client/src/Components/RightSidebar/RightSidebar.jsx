@@ -1,9 +1,10 @@
 import "./RightSidebar.css";
 import Message from "../Message/Message";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
+import Sidebar from "../Sidebar/Sidebar";
 
-const RightSidebar = ({ users, selectedUser, onSelectUser }) => {
+const RightSidebar = ({ loggedUser, users, selectedUser, onSelectUser }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredUsers = users.filter((u) =>
@@ -12,6 +13,9 @@ const RightSidebar = ({ users, selectedUser, onSelectUser }) => {
 
   return (
     <div className="right-sidebar">
+      <div className="right-sidebar-sidebar">
+        <Sidebar image={loggedUser?.img} />
+      </div>
       <div className="right-sidebar-search">
         <div className="right-sidebar-search-sub">
           <IoIosSearch className="right-sidebar-search-icon" />

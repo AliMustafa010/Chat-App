@@ -1,4 +1,4 @@
-.home{
+.home {
     display: grid;
     grid-template-rows: 1fr 8fr 1fr;
     grid-template-columns: 1fr 8fr 1fr;
@@ -6,7 +6,7 @@
     background-image: url("../../Asset/signup-image.jpg");
 }
 
-.home-page{
+.home-page {
     display: grid;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
@@ -18,7 +18,65 @@
     column-gap: 20px;
 }
 
-.sidebar-home, .chat-home, .right-sidebar-home{
+.sidebar-home,
+.chat-home,
+.right-sidebar-home {
     display: flex;
     justify-content: center;
 }
+
+@media (max-width: 320px) {
+    .sidebar-home{
+        display: none;
+    }
+
+    .home-page {
+        grid-template-columns: 4fr 7fr;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .sidebar-home{
+        display: none;
+    }
+
+    .home-page {
+        grid-template-columns: 4fr 7fr;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .sidebar-home{
+        display: none;
+    }
+    
+    .home-page {
+        grid-template-columns: 4fr 7fr;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .home {
+        grid-template-rows: 1fr 5fr 1fr;
+    }
+
+    .home-page {
+        grid-template-columns: 4fr 7fr;
+    }
+
+    .sidebar-home{
+        display: none;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .home {
+        grid-template-rows: 1fr 5fr 1fr;
+    }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {}
+
+@media (min-width: 1441px) and (max-width: 1920px) {}
+
+@media (min-width: 1921px) {}

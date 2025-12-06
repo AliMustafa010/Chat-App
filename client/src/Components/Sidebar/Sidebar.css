@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
     display: grid;
     grid-template-rows: 1fr 2fr 1fr;
     row-gap: 20px;
@@ -7,43 +7,117 @@
     border-radius: 16px;
 }
 
-.sidebar-profile{
+.sidebar-profile {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.sidebar-profile-img{
+.sidebar-profile-img {
     width: 75px;
     height: 75px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.sidebar-items{
+.sidebar-items {
     display: grid;
     justify-content: center;
     align-content: center;
     grid-template-rows: repeat(4, 1fr);
 }
 
-.sidebar-item-1, .sidebar-item-2, .sidebar-item-3, .sidebar-item-4{
+.sidebar-item-1,
+.sidebar-item-2,
+.sidebar-item-3,
+.sidebar-item-4 {
     display: flex;
     align-items: center;
-    width: 100%;    
-    padding: 10px 20px;        
+    width: 100%;
+    padding: 10px 20px;
     cursor: pointer;
-    border-radius: 8px; 
+    border-radius: 8px;
 }
 
-.selected-sidebar-item{
+.selected-sidebar-item {
     width: 100%;
     background-color: #0046d5;
-    color: white; 
+    color: white;
 }
 
-.sidebar-logout{
+.sidebar-logout {
     display: grid;
     justify-content: center;
     align-content: center;
+}
+
+.sidebar-item-icon {
+    font-size: 30px;
+    color: white;
+}
+
+@media (max-width: 320px) {
+    .sidebar-profile-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .sidebar-item-icon {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .sidebar-profile-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .sidebar-item-icon {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .sidebar-profile-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .sidebar-item-icon {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .sidebar-profile-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .sidebar-item-icon {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .sidebar-profile-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .sidebar-item-icon {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+    .sidebar-profile-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .sidebar-item-icon {
+        font-size: 25px;
+    }
 }
