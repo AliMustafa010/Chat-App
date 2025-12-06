@@ -36,6 +36,13 @@ const LoginPage = () => {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSubmit(e);
+    }
+  };
+
   return (
     <div className='login-page-container'>
       <div className='login-page'>
@@ -48,6 +55,7 @@ const LoginPage = () => {
             type={"email"}
             value={email}
             onChange={(e) => { setEmail(e.target.value) }}
+            onKeyDown={handleKeyDown}
           />
         </div>
         <div className='login-page-password'>
@@ -56,6 +64,7 @@ const LoginPage = () => {
             type={'password'}
             value={password}
             onChange={(e) => { setPassword(e.target.value) }}
+            onKeyDown={handleKeyDown}
           />
         </div>
         <div className='login-page-button'>

@@ -40,6 +40,13 @@ const SignupPage = () => {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSubmit(e);
+    }
+  };
+
   return (
     <div className='signup-page-container'>
       <div className='signup-page'>
@@ -52,6 +59,7 @@ const SignupPage = () => {
             type={'text'}
             value={username}
             onChange={(e) => { setUsername(e.target.value) }}
+            onKeyDown={handleKeyDown}
           />
         </div>
         <div className='signup-page-email'>
@@ -60,6 +68,7 @@ const SignupPage = () => {
             type={"email"}
             value={email}
             onChange={(e) => { setEmail(e.target.value) }}
+            onKeyDown={handleKeyDown}
           />
         </div>
         <div className='signup-page-password'>
@@ -68,6 +77,7 @@ const SignupPage = () => {
             type={'password'}
             value={password}
             onChange={(e) => { setPassword(e.target.value) }}
+            onKeyDown={handleKeyDown}
           />
         </div>
         <div className='signup-page-tel'>
@@ -76,6 +86,8 @@ const SignupPage = () => {
             type={"tel"}
             value={tel}
             onChange={(e) => { setTel(e.target.value) }}
+            onKeyDown={handleKeyDown}
+
           />
         </div>
         <div className='signup-page-button'>
