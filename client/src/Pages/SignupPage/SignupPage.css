@@ -1,4 +1,4 @@
-.signup-page-container{
+.signup-page-container {
     display: grid;
     grid-template-columns: 3fr auto 3fr;
     grid-template-rows: 1fr auto 1fr;
@@ -7,15 +7,15 @@
     background-size: cover;
 }
 
-.signup-page{
+.signup-page {
     display: grid;
     grid-column: 2/3;
-    grid-row:  2/3;    
+    grid-row: 2/3;
     background-color: #222222;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 40px;
-    row-gap: 30px; 
+    row-gap: 30px;
     width: 30vw;
     justify-content: center;
     align-content: start;
@@ -36,7 +36,7 @@
 .signup-page-username input,
 .signup-page-email input,
 .signup-page-password input,
-.signup-page-tel input{
+.signup-page-tel input {
     color: rgb(255, 255, 255);
     border-radius: 6px;
     background-color: #0D0D0D;
@@ -48,34 +48,250 @@
 .signup-page-username label,
 .signup-page-email label,
 .signup-page-password label,
-.signup-page-tel label{
+.signup-page-tel label {
     margin-bottom: 5px;
     font-size: 20px;
 }
 
-.signup-page-head{
-    font-size:xx-large;
+.signup-page-head {
+    font-size: xx-large;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.signup-page-already{
+.signup-page-already {
     color: white;
     width: 25vw;
+    font-size: 18px;
 }
 
-.signup-page-already-register{
+.signup-page-already-register {
     color: rgb(3, 247, 255);
     margin-left: 5px;
     text-decoration: none;
 }
 
 
-.signup-page-button button{
+.signup-page-button button {
     background-color: #7b00ff;
     color: white;
     font-size: 25px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+}
+
+
+
+@media (max-width: 320px) {
+    .signup-page-container {
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: 3fr auto 3fr;
+    }
+
+    .signup-page {
+        width: 65vw;
+        padding: 20px;
+        row-gap: 15px;
+    }
+
+    .signup-page-head,
+    .signup-page-username,
+    .signup-page-email,
+    .signup-page-password,
+    .signup-page-tel,
+    .signup-page-button {
+        width: 65vw;
+    }
+
+    .signup-page-already {
+        width: 65vw;
+        font-size: 10px;
+    }
+
+    .signup-page-username label,
+    .signup-page-email label,
+    .signup-page-password label,
+    .signup-page-tel label {
+        font-size: 12px;
+    }
+
+    .signup-page-username input,
+    .signup-page-email input,
+    .signup-page-password input,
+    .signup-page-tel input {
+        font-size: 12px;
+    }
+
+    .signup-page-head {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .signup-page-button button {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .signup-page-container {
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: 3fr auto 3fr;
+    }
+
+    .signup-page {
+        width: 65vw;
+        row-gap: 20px;
+        padding: 20px;
+    }
+
+    .signup-page-head,
+    .signup-page-username,
+    .signup-page-email,
+    .signup-page-password,
+    .signup-page-tel,
+    .signup-page-button {
+        width: 60vw;
+    }
+
+    .signup-page-already {
+        width: 60vw;
+        font-size: 13px;
+    }
+
+    .signup-page-username label,
+    .signup-page-email label,
+    .signup-page-password label,
+    .signup-page-tel label {
+        font-size: 15px;
+    }
+
+    .signup-page-username input,
+    .signup-page-email input,
+    .signup-page-password input,
+    .signup-page-tel input {
+        font-size: 15px;
+    }
+
+    .signup-page-head {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .signup-page-button button {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .signup-page-container {
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    .signup-page {
+        width: 60vw;
+        row-gap: 20px;
+    }
+
+    .signup-page-head,
+    .signup-page-username,
+    .signup-page-email,
+    .signup-page-password,
+    .signup-page-tel,
+    .signup-page-button {
+        width: 55vw;
+    }
+
+    .signup-page-already {
+        width: 55vw;
+        font-size: 16px;
+    }
+
+    .signup-page-username label,
+    .signup-page-email label,
+    .signup-page-password label,
+    .signup-page-tel label {
+        font-size: 18px;
+    }
+
+    .signup-page-username input,
+    .signup-page-email input,
+    .signup-page-password input,
+    .signup-page-tel input {
+        font-size: 18px;
+    }
+
+    .signup-page-button button {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .signup-page-container {
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    .signup-page {
+        width: 50vw;
+    }
+
+    .signup-page-head,
+    .signup-page-username,
+    .signup-page-email,
+    .signup-page-password,
+    .signup-page-tel,
+    .signup-page-button {
+        width: 45vw;
+    }
+
+    .signup-page-already {
+        width: 45vw;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .signup-page-container {
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    .signup-page {
+        width: 40vw;
+    }
+
+    .signup-page-head,
+    .signup-page-username,
+    .signup-page-email,
+    .signup-page-password,
+    .signup-page-tel,
+    .signup-page-button {
+        width: 35vw;
+    }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+    .signup-page-container {
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    .signup-page {
+        width: 30vw;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .signup-page-container {
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    .signup-page {
+        width: 30vw;
+    }
+}
+
+@media (min-width: 1921px) {
+
 }
