@@ -25,8 +25,8 @@ const ResponsiveSidebar = ({ image }) => {
                 </div>
             </div>
 
-            <div className='responsive-sidebar-icons' style={{display : "none"}}>
-                <div className="responsive-sidebar-item-1">
+            <div className='responsive-sidebar-icons'>
+                {/* <div className="responsive-sidebar-item-1">
                     <Link to="">
                         <IoHomeOutline className="responsive-sidebar-item-icon" />
                     </Link>
@@ -54,7 +54,7 @@ const ResponsiveSidebar = ({ image }) => {
                     <Link to="/login">
                         <IoLogOutOutline className="responsive-sidebar-item-icon" />
                     </Link>
-                </div>
+                </div> */}
             </div>
         </div>
     )

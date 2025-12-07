@@ -1,33 +1,42 @@
 .responsive-sidebar {
-    display: grid;
     background-color: rgb(59, 86, 238);
     border-radius: 16px;
+}
+
+.responsive-sidebar-profile-img {
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .responsive-sidebar-display {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100%;
 }
 
 .responsive-sidebar-profile{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    
 }
 
-.responsive-sidebar-ham {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.responsive-sidebar-profile-img {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    object-fit: cover;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .responsive-sidebar-item-icon {
     color: white;
