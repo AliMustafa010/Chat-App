@@ -77,26 +77,26 @@ input:focus {
 
 @media (max-width: 320px) {
     .right-sidebar {
-        grid-template-rows: 1fr 1fr 6fr;
+        grid-template-rows: 1fr 1fr 5fr;
     }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
     .right-sidebar {
-        grid-template-rows: 1fr 1fr 6fr;
+        grid-template-rows: 1fr 1fr 5fr;
     }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
     .right-sidebar {
-        grid-template-rows: 1fr 1fr 6fr;
+        grid-template-rows: 1fr 1fr 5fr;
     }
 }
 
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .right-sidebar {
-        grid-template-rows: 1fr 1fr 6fr;
+        grid-template-rows: 1fr 1fr 5fr;
     }
 
 }
