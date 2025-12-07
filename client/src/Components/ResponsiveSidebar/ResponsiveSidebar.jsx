@@ -8,22 +8,24 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const ResponsiveSidebar = ({ image }) => {
     return (
         <div className='responsive-sidebar'>
+
             <div className="responsive-sidebar-display">
                 <div className='responsive-sidebar-profile'>
                     <Link to="/profile">
                         <img
                             src={image}
                             alt="profile"
-                            className="sidebar-profile-img"
+                            className="responsive-sidebar-profile-img"
                         />
                     </Link>
                 </div>
+
                 <div className='responsive-sidebar-ham'>
                     <GiHamburgerMenu className="responsive-sidebar-item-icon" />
                 </div>
             </div>
 
-            <div className='responsive-sidebar-icons'>
+            <div className='responsive-sidebar-icons' style={{display : "none"}}>
                 <div className="responsive-sidebar-item-1">
                     <Link to="">
                         <IoHomeOutline className="responsive-sidebar-item-icon" />
@@ -48,7 +50,7 @@ const ResponsiveSidebar = ({ image }) => {
                     </Link>
                 </div>
 
-                <div className="responsive-sidebar-logout">
+                <div className="responsive-sidebar-item-5">
                     <Link to="/login">
                         <IoLogOutOutline className="responsive-sidebar-item-icon" />
                     </Link>
