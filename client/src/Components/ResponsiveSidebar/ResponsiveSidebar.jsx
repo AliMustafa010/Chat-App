@@ -4,58 +4,60 @@ import { IoHomeOutline, IoLogOutOutline } from 'react-icons/io5'
 import { GoBell, GoGear } from 'react-icons/go'
 import { LuMessageSquare } from 'react-icons/lu'
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useState } from "react"
 
 const ResponsiveSidebar = ({ image }) => {
+
+    const[open,setOpen] = useState(false);
+
     return (
         <div className='responsive-sidebar'>
 
             <div className="responsive-sidebar-display">
                 <div className='responsive-sidebar-profile'>
-                    <Link to="/profile">
-                        <img
-                            src={image}
-                            alt="profile"
-                            className="responsive-sidebar-profile-img"
-                        />
-                    </Link>
+                    <img
+                        src={image}
+                        alt="profile"
+                        className="responsive-sidebar-profile-img"
+                    />
                 </div>
 
-                <div className='responsive-sidebar-ham'>
+                <div className='responsive-sidebar-ham' onClick={() => setOpen(!open)}>
                     <GiHamburgerMenu className="responsive-sidebar-item-icon" />
                 </div>
             </div>
 
-            {/* <div className='responsive-sidebar-icons'>
-                <div className="responsive-sidebar-item-1">
+            <div style={{display : "none"}} >
+                <div>
                     <Link to="">
-                        <IoHomeOutline className="responsive-sidebar-item-icon" />
+                        <IoHomeOutline />
                     </Link>
                 </div>
 
-                <div className="responsive-sidebar-item-2">
+                <div>
                     <Link to="">
-                        <LuMessageSquare className="responsive-sidebar-item-icon" />
+                        <LuMessageSquare />
                     </Link>
                 </div>
 
-                <div className="responsive-sidebar-item-3">
+                <div>
                     <Link to="">
-                        <GoBell className="responsive-sidebar-item-icon" />
+                        <GoBell />
                     </Link>
                 </div>
 
-                <div className="responsive-sidebar-item-4">
+                <div>
                     <Link to="">
-                        <GoGear className="responsive-sidebar-item-icon" />
+                        <GoGear />
                     </Link>
                 </div>
-
-                <div className="responsive-sidebar-item-5">
-                    <Link to="/login">
-                        <IoLogOutOutline className="responsive-sidebar-item-icon" />
+                
+                <div>
+                    <Link to="">
+                        <IoLogOutOutline />
                     </Link>
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 }

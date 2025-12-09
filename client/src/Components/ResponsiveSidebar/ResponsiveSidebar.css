@@ -1,28 +1,37 @@
+.responsive-sidebar {
+    background-color: #1A66FF;
+    border-radius: 16px;
+    position: relative;
+    overflow: visible !important;
+}
+
+.responsive-sidebar-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding: 8px 15px;
+}
+
+.responsive-sidebar-profile {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
 
 .responsive-sidebar-profile-img {
     border-radius: 50%;
     object-fit: cover;
 }
 
-.responsive-sidebar-display {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: rgb(59, 86, 238);
-    border-radius: 16px;
-    height: 100%;
+.responsive-sidebar-ham {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
