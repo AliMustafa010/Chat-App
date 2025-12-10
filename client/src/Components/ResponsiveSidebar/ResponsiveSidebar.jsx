@@ -27,7 +27,7 @@ const ResponsiveSidebar = ({ image }) => {
                 </div>
             </div>
 
-            <div style={{display : "none"}} >
+            <div>
                 <div>
                     <Link to="">
                         <IoHomeOutline />
