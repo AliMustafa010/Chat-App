@@ -8,7 +8,7 @@ import { useState } from "react"
 
 const ResponsiveSidebar = ({ image }) => {
 
-    const[open,setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
     return (
         <div className='responsive-sidebar'>
@@ -27,37 +27,40 @@ const ResponsiveSidebar = ({ image }) => {
                 </div>
             </div>
 
-            <div style={{display : "none"}} >
-                <div>
-                    <Link to="">
-                        <IoHomeOutline />
-                    </Link>
-                </div>
+            {open && (
+                <div className="responsive-sidebar-icons">
+                    <div>
+                        <Link to="">
+                            <IoHomeOutline />
+                        </Link>
+                    </div>
 
-                <div>
-                    <Link to="">
-                        <LuMessageSquare />
-                    </Link>
-                </div>
+                    <div>
+                        <Link to="">
+                            <LuMessageSquare />
+                        </Link>
+                    </div>
 
-                <div>
-                    <Link to="">
-                        <GoBell />
-                    </Link>
-                </div>
+                    <div>
+                        <Link to="">
+                            <GoBell />
+                        </Link>
+                    </div>
 
-                <div>
-                    <Link to="">
-                        <GoGear />
-                    </Link>
+                    <div>
+                        <Link to="">
+                            <GoGear />
+                        </Link>
+                    </div>
+
+                    <div>
+                        <Link to="">
+                            <IoLogOutOutline />
+                        </Link>
+                    </div>
                 </div>
-                
-                <div>
-                    <Link to="">
-                        <IoLogOutOutline />
-                    </Link>
-                </div>
-            </div>
+            )}
+
         </div>
     )
 }
